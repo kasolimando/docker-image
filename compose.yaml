@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+
+  postgres-db:
+    image: 'postgres:15.0-alpine'
+    restart: always
+    environment:
+      POSTGRES_DB: pratica2
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: kr140701
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - web_net
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      start_period: 30s
+  
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8083:8000"
+    environment:
+      FLASK_DATABASE_NAME: pratica2
+      FLASK_DATABASE_USER: postgres
+      FLASK_DATABASE_PASSWORD: kr140701
+      FLASK_DATABASE_HOST: postgres-db
+      FLASK_ALLOWED_HOSTS: '*'
+    networks:
+      - web_net
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+        restart: true
+    
+
+volumes:
+  postgres_data:
+
+networks:
+  web_net:
