@@ -12,7 +12,7 @@ services:
     volumes:
       - type: bind
         source: "/data/gv0/vols/docker-image"
-        source: "/var/lib/postgresql/data"
+        target: "/var/lib/postgresql/data"
     networks:
       - web_net
     healthcheck:
@@ -32,11 +32,6 @@ services:
       FLASK_ALLOWED_HOSTS: '*'
     networks:
       - web_net
-    depends_on:
-      postgres-db:
-        condition: service_healthy
-        restart: true
-    
 
 volumes:
   postgres_data:
