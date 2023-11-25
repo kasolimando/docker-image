@@ -200,6 +200,7 @@ objects:
             - image: 'kasolimando/docker-image'
               imagePullPolicy: Always
               name: appserver
+              command: ["python3", "app.py"]
               args:
                 - appserver
               env:
