@@ -220,7 +220,7 @@ objects:
                       name: "${APP_NAME}-keys"
                       key: db_pwd
                 - name: FLASK_DATABASE_HOST
-                  value: ${APP_NAME}-pgsql.${PROJECT_NAME}.svc
+                  value: ${APP_NAME}-pgsql.pj-${PROJECT_NAME}.svc
                 - name:  FLASK_ALLOWED_HOSTS
                   value: '*'
               ports:
