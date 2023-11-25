@@ -5,7 +5,6 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     libpq-dev
 
-COPY --from=build /opt/docker-image /opt/docker-image
 WORKDIR /app
 
 COPY . /app
