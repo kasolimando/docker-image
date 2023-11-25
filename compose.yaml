@@ -26,7 +26,7 @@ services:
       FLASK_DATABASE_NAME: pratica2
       FLASK_DATABASE_USER: postgres
       FLASK_DATABASE_PASSWORD: kr140701
-      FLASK_DATABASE_HOST: postgres-db
+      FLASK_DATABASE_HOST: docker-image-pgsql.pj-krodriguez-20.svc
       FLASK_ALLOWED_HOSTS: '*'
     networks:
       - web_net
