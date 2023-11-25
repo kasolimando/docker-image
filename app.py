@@ -10,7 +10,7 @@ from request.delete import delete_directories
 from request.getAll import get_directories
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:kr140701@docker-image-postgres-db-1/pratica2'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:kr140701@docker-image-pgsql.pj-krodriguez-20.svc/pratica2'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
