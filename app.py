@@ -8,9 +8,18 @@ from request.put import put_directories
 from request.patch import patch_directories
 from request.delete import delete_directories
 from request.getAll import get_directories
+import os #ESTA LINEA FUE AGREGADA
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:kr140701@docker-image-pgsql.pj-krodriguez-20.svc/pratica2'
+#app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:kr140701@docker-image-pgsql.pj-krodriguez-20.svc/pratica2'
+
+flask_database_name = os.environ.get('FLASK_DATABASE_NAME')
+flask_database_user = os.environ.get('FLASK_DATABASE_USER')
+flask_database_password = os.environ.get('FLASK_DATABASE_PASSWORD')
+flask_database_host = os.environ.get('FLASK_DATABASE_HOST')
+flask_allowed_hosts = os.environ.get('FLASK_ALLOWED_HOSTS')
+
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{flask_database_user}:{flask_database_password}@{flask_database_host}/{flask_database_name}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
