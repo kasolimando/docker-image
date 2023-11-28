@@ -1,4 +1,5 @@
 APP_NAME='docker-image'
+DB_USER='postgres'
 DB_PWD='kr140701'
 DOMAIN_NAME='krodriguez-20.okd-dev.ucab.edu.ve'
-PROHECT_NAME='krodriguez-20'
+PROJECT_NAME='krodriguez-20'
