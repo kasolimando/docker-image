@@ -1,0 +1,4 @@
+APP_NAME='docker-image'
+DB_PWD='kr140701'
+DOMAIN_NAME='krodriguez-20.okd-dev.ucab.edu.ve'
+PROHECT_NAME='krodriguez-20'
